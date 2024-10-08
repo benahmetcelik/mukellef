@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Interfaces;
+
+use App\Http\Responses\ServiceResponse;
+
+interface I{{ class }}Service
+{
+    /**
+     * Display a listing of the resource.
+     * @return ServiceResponse
+     */
+    public function index(): ServiceResponse;
+
+    /**
+     * Store a newly created resource in storage.
+     * @return ServiceResponse
+     */
+    public function store(): ServiceResponse;
+
+    /**
+    * Display the specified resource.
+    * @param string $id
+    * @return ServiceResponse
+    */
+    public function show(string $id): ServiceResponse;
+
+    /**
+     * Update the specified resource in storage.
+     * @return ServiceResponse
+     */
+    public function update(): ServiceResponse;
+
+
+    /**
+     * Remove the specified resource from storage.
+     * @return ServiceResponse
+     */
+    public function destroy(): ServiceResponse;
+}

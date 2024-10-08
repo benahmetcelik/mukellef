@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Traits\HttpResponse;
+use App\Interfaces\I{{ class }}Service;
+use Illuminate\Http\JsonResponse;
+
+
+class {{ class }}Controller extends Controller
+{
+    use HttpResponse;
+
+    private I{{ class }}Service ${{ classLoverCase }}Service;
+
+    public function __construct(I{{ class }}Service ${{ classLoverCase }}Service)
+    {
+        $this->{{ classLoverCase }}Service = ${{ classLoverCase }}Service;
+    }
+}
