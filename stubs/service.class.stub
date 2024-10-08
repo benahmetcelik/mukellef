@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Services;
+
+use App\Interfaces\I{{ class }};
+use \App\Http\Responses\ServiceResponse;
+
+class {{ class }} implements I{{ class }}
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(): ServiceResponse
+    {
+        return new ServiceResponse(true, 'Successful', [], 200);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(): ServiceResponse
+    {
+        return new ServiceResponse(true, 'Successful', [], 200);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id): ServiceResponse
+    {
+        return new ServiceResponse(true, 'Successful', [], 200);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(): ServiceResponse
+    {
+        return new ServiceResponse(true, 'Successful', [], 200);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(): ServiceResponse
+    {
+        return new ServiceResponse(true, 'Successful', [], 200);
+    }
+}
