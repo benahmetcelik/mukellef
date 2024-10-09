@@ -34,7 +34,7 @@ class SubscriptionController extends Controller
     {
         $filters = $request->filters;
         $perPage = $request->per_page ?? 10;
-        $response = $this->subscriptionService->index($filters,$perPage);
+        $response = $this->subscriptionService->index($filters, $perPage);
         return $this->httpResponse(isSuccess: $response->getIsSuccess(),
             message: $response->getMessage(),
             data: $response->getData(),
@@ -52,7 +52,8 @@ class SubscriptionController extends Controller
         $response = $this->subscriptionService->store(
             $request->name,
             $request->price,
-            $request->remaining_limit
+            $request->remaining_limit,
+            $request->period
         );
         return $this->httpResponse(isSuccess: $response->getIsSuccess(),
             message: $response->getMessage(),
@@ -66,13 +67,14 @@ class SubscriptionController extends Controller
      * @param Subscription $subscription
      * @return JsonResponse
      */
-    public function update(UpdateRequest $request,Subscription $subscription): JsonResponse
+    public function update(UpdateRequest $request, Subscription $subscription): JsonResponse
     {
         $response = $this->subscriptionService->update(
             $subscription,
             $request->name,
             $request->price,
-            $request->remaining_limit
+            $request->remaining_limit,
+            $request->period
         );
         return $this->httpResponse(isSuccess: $response->getIsSuccess(),
             message: $response->getMessage(),

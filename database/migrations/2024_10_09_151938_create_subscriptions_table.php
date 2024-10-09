@@ -15,6 +15,7 @@ return new class extends Migration
                 $table->id();
                 $table->text('name')->nullable();
                 $table->integer('remaining_limit')->default(0);
+                $table->integer('period')->default(0);
                 $table->double('price')->default(0);
                 $table->timestamps();
             });

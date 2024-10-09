@@ -20,4 +20,18 @@ interface IUserService
      * @return ServiceResponse
      */
     public function getByEmail(string $email):ServiceResponse;
+
+    /**
+     * @param mixed $filters
+     * @param int $perPage
+     * @return ServiceResponse
+     */
+    public function indexAnd(mixed $filters, int $perPage): ServiceResponse;
+
+    /**
+     * @param mixed $filters
+     * @param int $perPage
+     * @return ServiceResponse
+     */
+    public function indexWith(mixed $filters, int $perPage): ServiceResponse;
 }

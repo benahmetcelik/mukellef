@@ -1,0 +1,31 @@
+
+  2024-10-09 23:40:20 Running ['artisan' renew-subscriptions] ... 92.21ms DONE
+  ⇂ '/usr/local/bin/php' 'artisan' renew-subscriptions > '/dev/null' 2>&1  
+
+all cron started success
+
+  2024-10-09 23:41:20 Running ['artisan' renew-subscriptions] ... 94.35ms DONE
+  ⇂ '/usr/local/bin/php' 'artisan' renew-subscriptions > '/dev/null' 2>&1  
+
+all cron started success
+
+  2024-10-09 23:42:21 Running ['artisan' renew-subscriptions] ... 92.27ms DONE
+  ⇂ '/usr/local/bin/php' 'artisan' renew-subscriptions > '/dev/null' 2>&1  
+  2024-10-09 23:42:21 Running ['artisan' renew-subscriptions:v2]  92.09ms DONE
+  ⇂ '/usr/local/bin/php' 'artisan' renew-subscriptions:v2 > '/dev/null' 2>&1  
+
+all cron started success
+
+  2024-10-09 23:43:21 Running ['artisan' renew-subscriptions] ... 92.13ms DONE
+  ⇂ '/usr/local/bin/php' 'artisan' renew-subscriptions > '/dev/null' 2>&1  
+  2024-10-09 23:43:21 Running ['artisan' renew-subscriptions:v2]  91.51ms DONE
+  ⇂ '/usr/local/bin/php' 'artisan' renew-subscriptions:v2 > '/dev/null' 2>&1  
+
+all cron started success
+
+  2024-10-09 23:44:21 Running ['artisan' renew-subscriptions] ... 96.95ms DONE
+  ⇂ '/usr/local/bin/php' 'artisan' renew-subscriptions > '/dev/null' 2>&1  
+  2024-10-09 23:44:21 Running ['artisan' renew-subscriptions:v2]  90.64ms DONE
+  ⇂ '/usr/local/bin/php' 'artisan' renew-subscriptions:v2 > '/dev/null' 2>&1  
+
+all cron started success

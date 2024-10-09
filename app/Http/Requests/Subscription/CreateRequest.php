@@ -21,10 +21,14 @@ class CreateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name'=>'required|string|max:255',
-            'price'=>'required',
-            'remaining_limit'=>'required|integer|max:12,min:1'
+        $customRules = [
+            'remaining_limit' => 'required|integer|max:12,min:1',
+            'period' => 'required|integer|max:365,min:1'
         ];
+        $defaultRules = [
+            'name' => 'required|string|max:255',
+            'price' => 'required',
+        ];
+        return config('options.system_mode') == 'default' ? $defaultRules : array_merge($defaultRules, $customRules);
     }
 }
