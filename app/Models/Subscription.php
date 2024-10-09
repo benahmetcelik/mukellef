@@ -10,8 +10,9 @@ class Subscription extends Model
     use HasFactory;
 
     protected $fillable = [
-      'name',
-      'price',
-      'remaining_limit'
+        'name',
+        'price',
+        'remaining_limit',
+        'period'
     ];
 }

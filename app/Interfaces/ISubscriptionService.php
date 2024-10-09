@@ -3,18 +3,11 @@
 namespace App\Interfaces;
 
 use App\Http\Responses\ServiceResponse;
+use App\Interfaces\Base\IBaseService;
 use App\Models\Subscription;
 
-interface ISubscriptionService
+interface ISubscriptionService extends IBaseService
 {
-    /**
-     * Display a listing of the resource.
-     * @param mixed $filters
-     * @param int $perPage
-     * @return ServiceResponse
-     */
-    public function index(mixed $filters,int $perPage): ServiceResponse;
-
     /**
      * Store a newly created resource in storage.
      * @param string $name
@@ -22,7 +15,7 @@ interface ISubscriptionService
      * @param int $remaining_limit
      * @return ServiceResponse
      */
-    public function store(string $name,float $price,int $remaining_limit): ServiceResponse;
+    public function store(string $name,float $price,int $remaining_limit,int $period): ServiceResponse;
 
     /**
     * Display the specified resource.
@@ -40,7 +33,7 @@ interface ISubscriptionService
      * @param int $remaining_limit
      * @return ServiceResponse
      */
-    public function update(Subscription $subscription,string $name,float $price,int $remaining_limit): ServiceResponse;
+    public function update(Subscription $subscription,string $name,float $price,int $remaining_limit,int $period): ServiceResponse;
 
 
     /**

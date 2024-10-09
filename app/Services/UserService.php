@@ -4,7 +4,9 @@ namespace App\Services;
 
 use App\Http\Responses\ServiceResponse;
 use App\Interfaces\IUserService;
+use App\Models\SubscriptionV2;
 use App\Models\User;
+use App\Models\UserSubscription;
 use Illuminate\Support\Facades\Hash;
 
 class UserService implements IUserService
@@ -61,6 +63,46 @@ class UserService implements IUserService
 
         return new ServiceResponse(true, 'Successful', $user, 200);
 
+    }
+
+
+    /**
+     * @param mixed $filters
+     * @param int $perPage
+     * @return ServiceResponse
+     */
+    public function indexAnd(mixed $filters, int $perPage): ServiceResponse
+    {
+        $model = User::query();
+        if (!empty($filters)) {
+            foreach ($filters as $filter) {
+                $model = $model->where($filter->column, $filter->operation, $filter->value);
+            }
+        }
+        $model = $model->with('transactions')
+            ->with('subscriptions');
+        $model = $model->paginate($perPage);
+        return new ServiceResponse(true, 'Successful', $model, 200);
+    }
+
+
+    /**
+     * @param mixed $filters
+     * @param int $perPage
+     * @return ServiceResponse
+     */
+    public function indexWith(mixed $filters, int $perPage): ServiceResponse
+    {
+        $model = User::query();
+        if (!empty($filters)) {
+            foreach ($filters as $filter) {
+                $model = $model->where($filter->column, $filter->operation, $filter->value);
+            }
+        }
+        $model = $model->with('subscriptions.transactions')
+        ;
+        $model = $model->paginate($perPage);
+        return new ServiceResponse(true, 'Successful', $model, 200);
     }
 
 }

@@ -5,16 +5,20 @@ namespace App\Services;
 use App\Interfaces\ISubscriptionService;
 use App\Http\Responses\ServiceResponse;
 use App\Models\Subscription;
+use App\Models\SubscriptionV2;
+use App\Models\User;
+use App\Models\UserSubscription;
+use App\Services\Base\BaseService;
 
-class SubscriptionService implements ISubscriptionService
+class SubscriptionService extends BaseService implements ISubscriptionService
 {
+
     /**
-     * Display a listing of the resource.
      * @param mixed $filters
      * @param int $perPage
      * @return ServiceResponse
      */
-    public function index(mixed $filters, int $perPage = 10): ServiceResponse
+    public function index(mixed $filters, int $perPage): ServiceResponse
     {
         $model = Subscription::query();
         if (!empty($filters)) {
@@ -31,14 +35,16 @@ class SubscriptionService implements ISubscriptionService
      * @param string $name
      * @param float $price
      * @param int $remaining_limit
+     * @param int $period
      * @return ServiceResponse
      */
-    public function store(string $name, float $price, int $remaining_limit): ServiceResponse
+    public function store(string $name, float $price, int $remaining_limit, int $period): ServiceResponse
     {
         return new ServiceResponse(true, 'Successful', Subscription::create([
             'name' => $name,
             'price' => $price,
-            'remaining_limit' => $remaining_limit
+            'remaining_limit' => $remaining_limit,
+            'period' => $period
         ]), 200);
     }
 
@@ -58,13 +64,15 @@ class SubscriptionService implements ISubscriptionService
      * @param string $name
      * @param float $price
      * @param int $remaining_limit
+     * @param int $period
      * @return ServiceResponse
      */
-    public function update(Subscription $subscription, string $name, float $price, int $remaining_limit): ServiceResponse
+    public function update(Subscription $subscription, string $name, float $price, int $remaining_limit, int $period): ServiceResponse
     {
         $subscription->name = $name;
         $subscription->price = $price;
         $subscription->remaining_limit = $remaining_limit;
+        $subscription->period = $period;
         $subscription->save();
         return new ServiceResponse(true, 'Successful', $subscription, 200);
     }
