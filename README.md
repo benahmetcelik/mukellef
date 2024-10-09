@@ -40,3 +40,6 @@ docker compose up -d --build
 
 İşlem tamamlandıktan sonra ana dizinde bulunan ilgili postman collection dosyasını içe aktarıp testlere
 başlayabilirsiniz.
+
+
+Döküman : https://documenter.getpostman.com/view/21759520/2sAXxQds4J
