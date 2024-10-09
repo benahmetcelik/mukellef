@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Interfaces\ISubscriptionService;
 use App\Interfaces\IUserService;
+use App\Services\SubscriptionService;
 use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +18,10 @@ class InterfaceServiceProvider extends ServiceProvider
         $this->app->bind(
             IUserService::class,
             UserService::class
+        );
+        $this->app->bind(
+            ISubscriptionService::class,
+            SubscriptionService::class
         );
     }
 
